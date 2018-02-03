@@ -4,7 +4,7 @@ HEADERS = buffer.h lyt.h
 OBJECTS = $(patsubst %.cpp, %.o, $(SOURCES))
 LIB = liblyt.a
 MAIN = main.cpp
-PREFIX = /usr/local/
+PREFIX = /usr/local
 
 $(LIB): $(OBJECTS)
 	ar rvs $(LIB) $(OBJECTS)
@@ -14,13 +14,16 @@ $(OBJECTS): %.o: %.cpp
 
 .PHONY: install
 
+clean:
+	rm -f $(LIB)
+
 install: $(LIB)
 	mkdir -p $(PREFIX)/include/lyt
-	mv $(HEADERS) $(PREFIX)/include/lyt
+	cp $(HEADERS) $(PREFIX)/include/lyt
 	mkdir -p $(PREFIX)/lib/
-	mv $(LIB) $(PREFIX)/lib/
+	cp $(LIB) $(PREFIX)/lib/
 
 uninstall:
-	rm -rfi $(PREFIX)/include/lyt
-	rm -fi $(PREFIX)/lib/$(LIB)
+	rm -rf $(PREFIX)/include/lyt
+	rm -f $(PREFIX)/lib/$(LIB)
 	
