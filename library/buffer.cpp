@@ -3,12 +3,10 @@
 #include <string>
 #include <functional>
 #include <exception>
-#include <iostream>
 #include "buffer.h"
 
 Buffer::Buffer(const std::vector<float> &data, float sampleRate)
 {
-    std::cout << sampleRate << std::endl;
     vec = data;
     this->sampleRate = sampleRate;
 }
@@ -40,7 +38,6 @@ void Buffer::maps(std::function<float(int n, float value)> fn)
 
 void Buffer::mapt(std::function<float(float t, float value)> fn)
 {
-    std::cout << sampleRate << std::endl;
     for (int i = 0; i < numSamples(); i++)
     {
         float t = (float)i / sampleRate;
