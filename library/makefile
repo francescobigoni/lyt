@@ -6,6 +6,8 @@ LIB = liblyt.a
 MAIN = main.cpp
 PREFIX = /usr/local
 
+build: $(LIB)
+
 $(LIB): $(OBJECTS)
 	ar rvs $(LIB) $(OBJECTS)
 

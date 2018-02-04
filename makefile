@@ -1,5 +1,8 @@
 PREFIX = /usr/local
 
+build:
+	$(MAKE) build -C library
+
 install:
 	$(MAKE) install PREFIX=$(PREFIX) -C library
 	cp tool/lyt.py $(PREFIX)/bin/lyt
