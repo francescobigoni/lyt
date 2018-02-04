@@ -1,6 +1,6 @@
 CPPFLAGS = --std=c++11 -Wall
 SOURCES = buffer.cpp lyt.cpp settings.cpp
-HEADERS = buffer.h lyt.h settings.h
+HEADERS = buffer.h lyt.h settings.h processor.h
 OBJECTS = $(patsubst %.cpp, %.o, $(SOURCES))
 LIB = liblyt.a
 MAIN = main.cpp
