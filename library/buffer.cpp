@@ -4,9 +4,13 @@
 #include <functional>
 #include <exception>
 #include "buffer.h"
+#include "settings.h"
 
 Buffer::Buffer(const std::vector<float> &data, float sampleRate)
 {
+    if (sampleRate == 0)
+        sampleRate = LYT_SETTINGS.sampleRate;
+
     vec = data;
     this->sampleRate = sampleRate;
 }

@@ -1,6 +1,6 @@
 CPPFLAGS = --std=c++11 -Wall
-SOURCES = buffer.cpp lyt.cpp
-HEADERS = buffer.h lyt.h
+SOURCES = buffer.cpp lyt.cpp settings.cpp
+HEADERS = buffer.h lyt.h settings.h
 OBJECTS = $(patsubst %.cpp, %.o, $(SOURCES))
 LIB = liblyt.a
 MAIN = main.cpp
@@ -9,13 +9,14 @@ PREFIX = /usr/local
 $(LIB): $(OBJECTS)
 	ar rvs $(LIB) $(OBJECTS)
 
-$(OBJECTS): %.o: %.cpp
+$(OBJECTS): %.o: %.cpp %.h
 	clang++ $(CPPFLAGS) -c $< -o $@
 
 .PHONY: install
 
 clean:
 	rm -f $(LIB)
+	rm $(OBJECTS)
 
 install: $(LIB)
 	mkdir -p $(PREFIX)/include/lyt

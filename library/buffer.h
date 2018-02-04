@@ -6,8 +6,8 @@
 class Buffer
 {
 public:
-    Buffer(const std::vector<float> &data, float sampleRate = 44100);
-    static Buffer zero(int n, float sampleRate = 44100);
+    Buffer(const std::vector<float> &data, float sampleRate = 0);
+    static Buffer zero(int n, float sampleRate = 0);
     float *data();
     float get(int i);
     void maps(std::function<float(int n, float value)> fn);

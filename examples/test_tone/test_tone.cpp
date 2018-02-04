@@ -1,5 +1,5 @@
 #include <iostream>
-#include <lyt/buffer.h>
+#include <lyt/lyt.h>
 #include <cmath>
 
 int main(int argc, char **argv)
