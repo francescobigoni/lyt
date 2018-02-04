@@ -10,6 +10,6 @@ int main(int argc, char **argv)
         return std::sin(2 * M_PI * t * 440.0);
     });
 
-    buf.writeFile("A440.wav");
+    buf.writeFile("output.wav");
     return 0;
 }

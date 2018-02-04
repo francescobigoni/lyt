@@ -24,13 +24,26 @@ public:
     */
     static Buffer zero(int n, float sampleRate = 0);
 
+    /** Appends \p n samples of \p value to this buffer.
+
+        @param n            The number of samples to append.
+        @param value        The value of those samples.
+    */
+    void append(int n, float value);
+
+    /** Appends another buffer to this buffer.
+
+        @param  buf         The buffer to append. 
+    */
+    void append(const Buffer &buf);
+
     /** Gets the raw pointer to the audio data array.
     */
     float *data();
 
     /** Gets the `i`'th sample of the buffer.
     */
-    float get(int i);
+    float get(int i) const;
 
     /** Maps a function of sample number and sample value over
         this buffer. The function should look like
@@ -60,7 +73,7 @@ public:
 
     /** Returns the number of samples in this buffer.
     */
-    int numSamples();
+    int numSamples() const;
 
     /** Sets sample number `i` to the given `value`.  
         

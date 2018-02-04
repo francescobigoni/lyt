@@ -21,12 +21,28 @@ Buffer Buffer::zero(int n, float sampleRate)
     return Buffer::Buffer(vec, sampleRate);
 }
 
+void Buffer::append(int n, float value)
+{
+    vec.reserve(numSamples() + n);
+
+    for (int i = 0; i < n; i++)
+        vec.push_back(value);
+}
+    
+void Buffer::append(const Buffer &buf)
+{
+    vec.reserve(numSamples() + buf.numSamples());
+
+    for (int i = 0; i < buf.numSamples(); i++)
+        vec.push_back(buf.get(i));
+}
+
 float *Buffer::data()
 {
     return vec.data();
 }
 
-float Buffer::get(int i)
+float Buffer::get(int i) const
 {
    return vec[i]; 
 }
@@ -50,7 +66,7 @@ void Buffer::mapt(std::function<float(float t, float value)> fn)
     }
 }
 
-int Buffer::numSamples()
+int Buffer::numSamples() const
 {
     return vec.size();
 }
