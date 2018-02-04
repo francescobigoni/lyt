@@ -1,7 +1,7 @@
 # The Lyt Library
 *Lyt* is a C++ library and command-line tool for rapid prototyping of audio applications. It gives the programmer the ability to utilize the features and speed of C++, without having to go through the usual ceremony of setting up such a project.
 
-*Lyt* comes *batteries included* --- many oft used DSP routines are included as well as utilities for reading and writing audio files. Many of these features are not implemented yet, but will in the future.
+*Lyt* comes *batteries included* — many oft used DSP routines are included as well as utilities for reading and writing audio files. Many of these features are not implemented yet, but will in the future.
 
 In addition to the C++ library there is the `lyt` command-line tool which gives you a scripting-language like experience of writing C++ code. Write your C++ program and run `lyt`, and it will take care of all compilation and linking for you.
 
