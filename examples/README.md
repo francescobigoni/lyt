@@ -8,8 +8,8 @@ $ lyt run test_tone.cpp
 
 All of the examples are:
 
-* `echo` --- Shows the use of the `Delay` class to create an echo effect.
-* `test_tone` --- Shows the basic use of the `Buffer` class and the `mapt` function.
-* `two_tones` --- Show the use of the `append` function of the `Buffer` class.
+* `echo` — Shows the use of the `Delay` class to create an echo effect.
+* `test_tone` — Shows the basic use of the `Buffer` class and the `mapt` function.
+* `two_tones` — Show the use of the `append` function of the `Buffer` class.
 
 Each example will write a output file called `output.wav`
