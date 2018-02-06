@@ -8,13 +8,38 @@ enum FilterType
 
 class Biquad : public Processor
 {
-public:
-    Biquad();
+    public:
+    /** Creates a new biquad filter object
+
+        @param  sampleRate      The sample rate of the input signal (optional).
+    */
+    Biquad(float sampleRate = 0);
+
+    /** Creates a new biquad filter in low-pass configuration.
+
+        @param  freq            The cutoff frequency.
+        @param  q               The filter quality/sharpness.
+        @param  sampleRate      The sample rate of the input signal (optional).
+    */
+    static Biquad LowPass(float freq, float q, float sampleRate = 0);
+
+    /** Resets the memory of the filter.
+    */
     void reset();
-    void setCoefs(FilterType type, float sampleRate, float freq, float q);
+
+    /** Sets the internal coefficients of the filter.
+
+        @param  type            The configuration of the filter.
+        @param  freq            The cutoff frequency.
+        @param  q               The filter quality/sharpness.
+    */
+    void setCoefs(FilterType type, float freq, float q);
+
+    /** Filters a single sample of the input signal.
+    */
     virtual float process(float value);
     
-private:
+    private:
     float sampleRate;
     float x1;
     float x2;

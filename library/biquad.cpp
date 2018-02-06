@@ -2,10 +2,19 @@
 #include "settings.h"
 #include <cmath>
 
-Biquad::Biquad()
+Biquad::Biquad(float sampleRate)
 {
-    sampleRate = LYT_SETTINGS.sampleRate; 
+    if (sampleRate == 0.0)
+        this->sampleRate = LYT_SETTINGS.sampleRate;
+
     reset();
+}
+
+Biquad Biquad::LowPass(float freq, float q, float sampleRate)
+{
+    auto biquad = Biquad::Biquad(sampleRate);
+    biquad.setCoefs(FilterType::LowPass, freq, q);
+    return biquad;
 }
 
 void Biquad::reset()
@@ -16,7 +25,7 @@ void Biquad::reset()
     y2 = 0.0;
 }
 
-void Biquad::setCoefs(FilterType type, float sampleRate, float freq, float q)
+void Biquad::setCoefs(FilterType type, float freq, float q)
 {
     float w0 = 2 * M_PI * freq / sampleRate;
     float cosw0 = std::cos(w0);
@@ -34,8 +43,6 @@ void Biquad::setCoefs(FilterType type, float sampleRate, float freq, float q)
     }
 }
 
-//y[n] = (b0/a0)*x[n] + (b1/a0)*x[n-1] + (b2/a0)*x[n-2]
-//        - (a1/a0)*y[n-1] - (a2/a0)*y[n-2]            (Eq 4)
 float Biquad::process(float x)
 {
     float y = (b0 / a0) * x  + (b1 / a0) * x1 + (b2 / a0) * x2
