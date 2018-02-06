@@ -8,7 +8,11 @@ $ lyt run test_tone.cpp
 
 All of the examples are:
 
+* `clarinet` — Physical model of a clarinet
 * `echo` — Shows the use of the `Delay` class to create an echo effect.
+* `karplus_strong` — Basic Karplus-Strong string synthesis.
+* `karplus_strong_triangle` — Basic Karplus-Strong string synthesis with triangular pluck model.
+* `karplus_strong_variable_pluck` — Basic Karplus-Strong string synthesis with variable pluck position.
 * `test_tone` — Shows the basic use of the `Buffer` class and the `mapt` function.
 * `two_tones` — Show the use of the `append` function of the `Buffer` class.
 
