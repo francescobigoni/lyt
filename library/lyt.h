@@ -3,3 +3,4 @@
 #include "settings.h"
 #include "processor.h"
 #include "delay.h"
+#include "biquad.h"
