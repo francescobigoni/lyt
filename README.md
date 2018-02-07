@@ -41,7 +41,7 @@ Installation and use on Windows is still in **very** early development, but the 
 The lyt tool is still not compatible with windows. Instead you can try to build the scripts with the command
 
 ```
-$ g++ --std=c++11 -lsndfil -llyt lyt_file.cpp -o lyt_file.exe
+$ g++ --std=c++11 -lsndfile -llyt my_lyt_file.cpp -o my_lyt_file.exe
 ```
 
 ## Using Lyt
