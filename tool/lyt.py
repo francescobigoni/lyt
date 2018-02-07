@@ -1,4 +1,4 @@
-#!/usr/bin/env python2.7
+#!python
 import os
 import sys
 import subprocess
@@ -23,7 +23,7 @@ def run(sourcePath):
 
 def build(sourcePath):
     targetPath = getTargetPath(sourcePath)
-    command = 'clang++ --std=c++11 -lsndfile -llyt -o "' + targetPath + '" "' + sourcePath + '"'
+    command = 'clang++ --std=c++11 -L/usr/local/lib/sndfile.lib -L/usr/local/lib/liblyt.a -o "' + targetPath + '" "' + sourcePath + '"'
     print command
     proc = subprocess.Popen(shlex.split(command), stdout=subprocess.PIPE)
     outs, errs = proc.communicate()
