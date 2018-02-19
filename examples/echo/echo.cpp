@@ -1,11 +1,6 @@
 #include <cmath>
 #include <lyt/lyt.h>
 
-int samples(float seconds)
-{
-    return std::ceil(seconds * LYT_SETTINGS.sampleRate);
-}
-
 int main(int argc, char **argv)
 {
     auto buf = Buffer::zero(samples(5.0));
