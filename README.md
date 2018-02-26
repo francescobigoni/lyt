@@ -5,7 +5,7 @@
 
 In addition to the C++ library there is the `lyt` command-line tool which gives you a scripting-language like experience of writing C++ code. Write your C++ program and run `lyt`, and it will take care of all compilation and linking for you.
 
-# Dependencies
+## Dependencies
 To build use *Lyt* you will need the following software
 
 * A C++ compiler (clang preferred).
@@ -18,7 +18,7 @@ Additionally you will need the following libraries
 
 Make sure that these are in your *PATH*, otherwise header inclusion and linking wont work.
 
-## Building on unix-like systems
+## Installing on unix-like systems
 
 Fire up your terminal and run the following commands:
 
@@ -29,6 +29,20 @@ $ make install
 ```
 
 Which will install Lyt to */usr/local/*. Set the `PREFIX` variable to change the installation location.
+
+## Installing on Windows
+Installation and use on Windows is still in **very** early development, but the general steps should be:
+
+* Install [MinGW](http://www.mingw.org/) including MSYS.
+* Clone this repository
+* Run `make install -D PREFIX=myprefix/` with a suitable prefix in the MSYS shell.
+* Make sure that your chosen prefix is in your *PATH*.
+
+The lyt tool is still not compatible with windows. Instead you can try to build the scripts with the command
+
+```
+$ g++ --std=c++11 -lsndfile -llyt my_lyt_file.cpp -o my_lyt_file.exe
+```
 
 ## Using Lyt
 *Lyt* is used by writing a C++ program and then running or building it using the `lyt` command-line tool. After installing *Lyt* you can test it on one of the examples in
@@ -80,3 +94,24 @@ buf.writeFile("output.wav");
 Which writes the audio contained in the buffer `buf` to the file *output.wav*.
 
 *Pretty soon there will be a complete reference for all of the functionality contained in lyt. Until then it can be useful to look throgh the header files in the library directory*
+
+## Contributing
+Please contribute to *Lyt* and help make it awesome! Some of the ways you can contribute:
+
+* Use *Lyt* for making cool audio apps and give us feedback, suggestions and bug reports using GitHub issues.
+* Try to install *Lyt* on new operating systems.
+* Try to use lyt combined with other software packages.
+* Add new features to the *Lyt* library or tool.
+
+Some features that are *todo* or that could be cool to have are:
+
+* A fractional delay line.
+* Spectral analysis tools.
+* More oscillators and filters.
+* A fractional delay line.
+* Tools for physical modelling.
+* Real time audio.
+* Simple GUI and interactivity tools.
+* Add more filter types to the `Biquad` class.
+* Implement common audio effects such as echo, flanger, chorus, reverb, distortion and compression as `Processor`s.
+* Whatever you'd like that's cool!
