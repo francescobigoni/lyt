@@ -19,7 +19,7 @@ Additionally you will need the following libraries
 
 On **Linux** you install the dependencies by running
 ```
-$ sudo apt-get install libsndfile1-dev libportaudio19-dev
+$ sudo apt-get install libsndfile1-dev portaudio19-dev
 ```
 
 On **macOS** you install the dependencies by installing [homebrew](https://brew.sh/) and then running
