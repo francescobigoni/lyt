@@ -18,7 +18,8 @@ Buffer::Buffer(const std::vector<float> &data, float sampleRate)
 Buffer Buffer::zero(int n, float sampleRate)
 {
     std::vector<float> vec(n, 0);
-    return Buffer::Buffer(vec, sampleRate);
+    Buffer buffer(vec, sampleRate);
+    return buffer; 
 }
 
 void Buffer::append(int n, float value)

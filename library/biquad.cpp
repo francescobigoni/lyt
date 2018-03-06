@@ -12,7 +12,7 @@ Biquad::Biquad(float sampleRate)
 
 Biquad Biquad::LowPass(float freq, float q, float sampleRate)
 {
-    auto biquad = Biquad::Biquad(sampleRate);
+    Biquad biquad(sampleRate);
     biquad.setCoefs(FilterType::LowPass, freq, q);
     return biquad;
 }

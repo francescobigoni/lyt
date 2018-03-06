@@ -1,3 +1,4 @@
+CXX = clang++
 CPPFLAGS = --std=c++14 -Wall
 SOURCES = buffer.cpp lyt.cpp settings.cpp processor.cpp delay.cpp biquad.cpp runningAverage.cpp utils.cpp realtime.cpp
 HEADERS = buffer.h lyt.h settings.h processor.h delay.h biquad.h runningAverage.h utils.h realtime.h
@@ -12,7 +13,7 @@ $(LIB): $(OBJECTS)
 	ar rvs $(LIB) $(OBJECTS)
 
 $(OBJECTS): %.o: %.cpp %.h
-	clang++ $(CPPFLAGS) -c $< -o $@
+	$(CXX) $(CPPFLAGS) -c $< -o $@
 
 .PHONY: install
 
