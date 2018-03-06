@@ -6,3 +6,6 @@
 #include "delay.h"
 #include "biquad.h"
 #include "runningAverage.h"
+#include "realtime.h"
+
+extern float pi;

@@ -80,7 +80,7 @@ void Buffer::writeFile(std::string path)
 {
     SF_INFO info;
     info.format = SF_FORMAT_WAV | SF_FORMAT_PCM_16;
-    info.samplerate = 44100;
+    info.samplerate = sampleRate;
     info.channels = 1;
  
     SNDFILE *file = sf_open(path.c_str(), SFM_WRITE, &info);

@@ -1,6 +1,6 @@
-CPPFLAGS = --std=c++11 -Wall
-SOURCES = buffer.cpp lyt.cpp settings.cpp processor.cpp delay.cpp biquad.cpp runningAverage.cpp utils.cpp
-HEADERS = buffer.h lyt.h settings.h processor.h delay.h biquad.h runningAverage.h utils.h
+CPPFLAGS = --std=c++14 -Wall
+SOURCES = buffer.cpp lyt.cpp settings.cpp processor.cpp delay.cpp biquad.cpp runningAverage.cpp utils.cpp realtime.cpp
+HEADERS = buffer.h lyt.h settings.h processor.h delay.h biquad.h runningAverage.h utils.h realtime.h
 OBJECTS = $(patsubst %.cpp, %.o, $(SOURCES))
 LIB = liblyt.a
 MAIN = main.cpp

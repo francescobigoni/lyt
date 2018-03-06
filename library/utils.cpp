@@ -9,5 +9,5 @@ int samples(float seconds)
 
 float seconds(int samples)
 {
-    return samples / LYT_SETTINGS.sampleRate;
+    return (float)samples / LYT_SETTINGS.sampleRate;
 }
