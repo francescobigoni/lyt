@@ -23,7 +23,7 @@ def run(sourcePath):
 
 def build(sourcePath):
     targetPath = getTargetPath(sourcePath)
-    command = 'clang++ --std=c++14 -lsndfile -llyt -lportaudio -o "' + targetPath + '" "' + sourcePath + '"'
+    command = 'clang++ --std=c++14 -o "' + targetPath + '" "' + sourcePath + '" -lsndfile -llyt -lportaudio'
     print command
     proc = subprocess.Popen(shlex.split(command), stdout=subprocess.PIPE)
     outs, errs = proc.communicate()

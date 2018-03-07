@@ -4,12 +4,14 @@
 #include <functional>
 #include <exception>
 #include <portaudio.h>
-#include <pa_mac_core.h>
 #include <cmath>
 #include <iostream>
 #include <thread>
 #include <chrono>
 #include <cstring>
+#if __APPLE__
+#include <pa_mac_core.h>
+#endif
 
 int paCallback(
     const void *inputBuffer,
@@ -71,31 +73,24 @@ void Realtime::start(std::function<float(int n, float x)> callback)
 
     PaStreamParameters inputParameters;
     PaStreamParameters outputParameters;
-    PaMacCoreStreamInfo macCoreStreamInfo;
-
-    PaMacCore_SetupStreamInfo(&macCoreStreamInfo, paMacCoreChangeDeviceParameters);
     inputParameters.device = Pa_GetDefaultInputDevice();
     inputParameters.channelCount = 2;
     inputParameters.sampleFormat = paFloat32;
-    inputParameters.hostApiSpecificStreamInfo = &macCoreStreamInfo;
     inputParameters.suggestedLatency = 0.005;
+    inputParameters.hostApiSpecificStreamInfo = NULL;
 
     outputParameters.device = Pa_GetDefaultOutputDevice();
     outputParameters.channelCount = 2;
     outputParameters.sampleFormat = paFloat32;   
-    outputParameters.hostApiSpecificStreamInfo = &macCoreStreamInfo;
     outputParameters.suggestedLatency = 0.005; 
+    outputParameters.hostApiSpecificStreamInfo = NULL;
 
-    // TODO: Stop assuming the number of input and output channels.
-    // auto err = Pa_OpenDefaultStream(
-    //     &this->stream,
-    //     2, 
-    //     2, 
-    //     paFloat32,
-    //     LYT_SETTINGS.sampleRate,
-    //     128,
-    //     paCallback,
-    //     this);
+#if __APPLE__
+    PaMacCoreStreamInfo macCoreStreamInfo;
+    PaMacCore_SetupStreamInfo(&macCoreStreamInfo, paMacCoreChangeDeviceParameters);
+    inputParameters.hostApiSpecificStreamInfo = &macCoreStreamInfo;
+    outputParameters.hostApiSpecificStreamInfo = &macCoreStreamInfo;
+#endif
 
     auto err = Pa_OpenStream(
         &this->stream,

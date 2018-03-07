@@ -8,27 +8,38 @@ In addition to the C++ library there is the `lyt` command-line tool which gives 
 ## Dependencies
 To build use *Lyt* you will need the following software
 
-* A C++ compiler (clang preferred).
+* Clang C++ compiler.
 * Make (preferably GNU Make).
 * Python 2.7 or later.
 
 Additionally you will need the following libraries
 
-* [libsndfile](http://www.mega-nerd.com/libsndfile/), easily installed via `apt-get install sndfile` on linux or `brew install sndfile` on mac (via [homebrew](https://brew.sh/)).
+* [libsndfile](http://www.mega-nerd.com/libsndfile/)
+* [portaudio](http://www.portaudio.com/)
 
-Make sure that these are in your *PATH*, otherwise header inclusion and linking wont work.
+On **Linux** you install the dependencies by running
+```
+$ sudo apt-get install libsndfile1-dev portaudio19-dev
+```
 
-## Installing on unix-like systems
+On **macOS** you install the dependencies by installing [homebrew](https://brew.sh/) and then running
+```
+$ brew install libsndfile portaudio
+```
 
-Fire up your terminal and run the following commands:
-
+## Installation 
+Clone the repository
 ```
 $ git clone https://github.com/PelleJuul/lyt.git
 $ cd lyt
+```
+
+And run make
+```
 $ make install
 ```
 
-Which will install Lyt to */usr/local/*. Set the `PREFIX` variable to change the installation location.
+You might need to run make with `sudo` if you're using linux.
 
 ## Installing on Windows
 Installation and use on Windows is still in **very** early development, but the general steps should be:
