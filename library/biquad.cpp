@@ -17,6 +17,13 @@ Biquad Biquad::LowPass(float freq, float q, float sampleRate)
     return biquad;
 }
 
+Biquad Biquad::BandPass(float freq, float q, float sampleRate)
+{
+    Biquad biquad(sampleRate);
+    biquad.setCoefs(FilterType::BandPass, freq, q);
+    return biquad;
+}
+
 void Biquad::reset()
 {
     x1 = 0.0;
@@ -37,6 +44,15 @@ void Biquad::setCoefs(FilterType type, float freq, float q)
         b0 =  (1.0 - cosw0) / 2.0;
         b1 =  1.0 - cosw0;
         b2 =  (1.0 - cosw0) / 2.0;
+        a0 =  1.0 + alpha;
+        a1 =  -2.0 * cosw0;
+        a2 =  1.0 - alpha;
+    }
+    else if (type == FilterType::BandPass)
+    {
+        b0 =  sinw0 / 2.0f;
+        b1 =  0.0f;
+        b2 = -sinw0 / 2.0f;
         a0 =  1.0 + alpha;
         a1 =  -2.0 * cosw0;
         a2 =  1.0 - alpha;

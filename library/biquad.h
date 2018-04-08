@@ -3,7 +3,8 @@
 
 enum FilterType
 {
-    LowPass
+    LowPass,
+    BandPass
 };
 
 class Biquad : public Processor
@@ -22,6 +23,14 @@ class Biquad : public Processor
         @param  sampleRate      The sample rate of the input signal (optional).
     */
     static Biquad LowPass(float freq, float q, float sampleRate = 0);
+
+    /** Creates a new biquad filter in low-pass configuration.
+
+        @param  freq            The cutoff frequency.
+        @param  q               The filter quality/sharpness.
+        @param  sampleRate      The sample rate of the input signal (optional).
+    */
+    static Biquad BandPass(float freq, float q, float sampleRate = 0);
 
     /** Resets the memory of the filter.
     */
