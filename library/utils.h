@@ -9,3 +9,7 @@ int samples(float seconds);
     @param  samples         The number of samples to convert to seconds.
 */
 float seconds(int samples);
+
+/** Returns a random float in the range [0:1).
+*/
+float randNum();

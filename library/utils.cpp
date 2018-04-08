@@ -1,6 +1,7 @@
 #include "utils.h"
 #include "settings.h"
 #include <cmath>
+#include <cstdlib>
 
 int samples(float seconds)
 {
@@ -10,4 +11,9 @@ int samples(float seconds)
 float seconds(int samples)
 {
     return (float)samples / LYT_SETTINGS.sampleRate;
+}
+
+float randNum()
+{
+    return static_cast<float>(rand()) / static_cast<float>(RAND_MAX);
 }
