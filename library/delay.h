@@ -9,7 +9,7 @@ class Delay : public Processor
     public:
     /** Constructs a new `Delay` object with a delay time of
         `n` samples.
-
+    
         @param  n           The length of the delay line in samples.
     */
     Delay(int n);
