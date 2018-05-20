@@ -4,7 +4,7 @@
 
 #include "processor.h"
 
-// An implementation of a linear interpolation fractional delay line.
+/// A polynomial interploation fractional delay line.
 class FDelay : public Processor
 {
     public:
@@ -36,8 +36,10 @@ class FDelay : public Processor
 
     private:
     int index;
-    int lowerDelay;
-    int upperDelay;
+    int d0;
+    int d1;
+    int d2;
+    int d3;
     float delay;
     float frac;
     std::vector<float> vec;
