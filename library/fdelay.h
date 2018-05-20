@@ -4,7 +4,8 @@
 
 #include "processor.h"
 
-/// A polynomial interploation fractional delay line.
+/// A polynomial interploation fractional delay line. See *examples/waveguide*
+/// for a usage example.
 class FDelay : public Processor
 {
     public:

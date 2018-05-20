@@ -39,10 +39,8 @@ float FDelay::process(float value)
 	float y1 = vec[(index - d1) % vec.size()];
 	float y2 = vec[(index - d2) % vec.size()];
 	float y3 = vec[(index - d3) % vec.size()];
-
-	
-
 	float x = frac;
+
     float y = 
     	(          (x - 1) * (x - 2) * (x - 3)) / (          (0 - 1) * (0 - 2) * (0 - 3)) * y0 +
         ((x - 0)           * (x - 2) * (x - 3)) / ((1 - 0)           * (1 - 2) * (1 - 3)) * y1 +
