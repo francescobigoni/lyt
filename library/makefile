@@ -1,7 +1,7 @@
 CXX = clang++
-CPPFLAGS = --std=c++14 -Wall
-SOURCES = buffer.cpp lyt.cpp settings.cpp processor.cpp fdelay.cpp delay.cpp biquad.cpp runningAverage.cpp utils.cpp realtime.cpp
-HEADERS = buffer.h lyt.h settings.h processor.h fdelay.h delay.h biquad.h runningAverage.h utils.h realtime.h
+CPPFLAGS = --std=c++14 -Wall -I./
+SOURCES = $(wildcard *.cpp)
+HEADERS = $(wildcard *.h)
 OBJECTS = $(patsubst %.cpp, %.o, $(SOURCES))
 LIB = liblyt.a
 MAIN = main.cpp
@@ -15,11 +15,16 @@ $(LIB): $(OBJECTS)
 $(OBJECTS): %.o: %.cpp %.h
 	$(CXX) $(CPPFLAGS) -c $< -o $@
 
-.PHONY: install
+.PHONY: install list
 
 clean:
 	rm -f $(LIB)
 	rm $(OBJECTS)
+
+list:
+	echo $(SOURCES)
+	echo $(HEADERS)
+	echo $(OBJECTS)
 
 install: $(LIB)
 	mkdir -p $(PREFIX)/include/lyt

@@ -3,6 +3,8 @@
 #include <cmath>
 #include <cstdlib>
 
+double pi = 3.14159265359;
+
 int samples(float seconds)
 {
     return std::ceil(seconds * LYT_SETTINGS.sampleRate);

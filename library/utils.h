@@ -1,3 +1,5 @@
+extern double pi;
+
 /** Converts from seconds to number samples.
     
     @param  seconds     The number of seconds to convert to samples.
